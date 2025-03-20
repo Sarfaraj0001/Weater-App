@@ -69,6 +69,7 @@ async function checkWeather(city) {
     
     const response = await fetch(`${apiUrl}&q=${city}&appid=${apiKey}`);
     var data = await response.json();
+    console.log(data);
     if (!data || data.cod === "404") {
         document.querySelector('.city').innerHTML = "City not found 😞";
         document.querySelector('.temp').innerHTML = "";
@@ -89,7 +90,8 @@ async function checkWeather(city) {
             "Rain": "images/rain.png",
             "Drizzle": "images/drizzle.png",
             "Mist": "images/mist.png",
-            "Haze": "images/haze.png"
+            "Haze": "images/haze.png",
+            "Smoke": "images/smoke.webp"
         };
         weatherIcon.src = weatherIcons[weatherCondition] || "images/default.png";
     }
